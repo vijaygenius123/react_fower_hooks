@@ -19,7 +19,6 @@ export default function usePokemon(): {
     const [filter, setFilter] = useState('')
     const [allPokemon, setAllPokemon] = useState<Pokemon[]>([])
 
-
     useEffect(function (){
         fetch('/pokemon.json')
             .then(resp => resp.json())

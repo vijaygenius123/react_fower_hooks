@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Box } from '@fower/react'
+import React from 'react';
+import {Box, Image} from '@fower/react'
 import { styled } from '@fower/styled'
 import usePokemon from "./hooks/usePokemon";
 
@@ -24,11 +24,32 @@ function App() {
             value={filter}
             onChange={(evt) => setFilter(evt.target.value)}
         />
+         <Box
+             grid
+             gridTemplateColumns-2
+             gap-20
+             mt-10
+         >
          {pokemon.map(pokemon => (
-             <Box key={pokemon.id} text2XL >
-                 {pokemon.name.english}
+             <Box key={pokemon.id}
+                  text3XL
+                  p-10
+                  border-1
+                  borderGray500
+                  roundedXL
+                  grid
+                  gridTemplateColumns-2
+                  gap-20
+             >
+                 <Image
+                     src={`https://github.com/jherr/fower-react-pokemon/raw/master/public/pokemon/${pokemon.name.english.toLowerCase()}.jpg`}
+                     w="100%"
+                 />
+                 <Box textLG>{pokemon.name.english}</Box>
+
              </Box>
          ))}
+         </Box>
      </Box>
   );
 }
